@@ -1,5 +1,6 @@
 package woowacourse.movie.ui.movielist
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.size
 import woowacourse.movie.R
 import woowacourse.movie.domain.Movie
 import java.time.LocalDate
@@ -29,6 +31,10 @@ class MovieListAdapter(
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val movie = movies[position]
         val viewHolder: MovieListViewHolder
+
+        Log.d("Test", "position : $position , convert view: ${convertView.hashCode()}")
+        Log.d("Test", "parent View Group size: ${parent?.size}")
+        // Log.d("Test", "position: $position, is convertView null ? : ${convertView == null}")
 
         val itemView = if (convertView != null) {
             convertView.also { viewHolder = it.tag as MovieListViewHolder }
